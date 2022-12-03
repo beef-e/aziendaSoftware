@@ -65,4 +65,54 @@ public class Task {
 
 		completato=false;
 	}
+
+	public void taskHandling(){
+		System.out.println("Quale azione si desidera effettuare con la task selezionata?");
+		System.out.println("1. Contrassegna come completato");
+		System.out.println("2. Contrassegna come critico");
+		System.out.println("3. Esci\n");
+		int val=0;
+		if (critico) val+=1;
+		if (completato) val+=2;
+		switch (val){
+			case 0:
+				System.out.println("La Task selezionata è attualmente non completata e di importanza non critica");
+				break;
+
+			case 1:
+				System.out.println("La Task selezionata è attualmente non completata, ma di importanza critica");
+				break;
+
+			case 2:
+				System.out.println("La Task selezionata è stata completata con una importanza non critica");
+				break;
+
+			case 3:
+				System.out.println("La Task selezionata è stata completata con una importanza critica");
+				break;
+
+			default:
+				System.out.println("Qualcosa è andato storto nella lettura della Task");
+				break;
+		}
+
+		Scanner numero=new Scanner(System.in);
+		int risposta=numero.nextInt();
+
+		switch (risposta){
+			case 1:
+				completato=true;
+				System.out.println("Task contrassegnata come completata");
+				break;
+
+			case 2:
+				critico=true;
+				System.out.println("Task contrassegnata come critica");
+				break;
+
+			default:
+				break;
+		}
+		//chiedi cosa fare e falla
+	}
 }
