@@ -41,7 +41,7 @@ public class Task {
 		System.out.print(">>>");
 		Scanner indice=new Scanner(System.in);
 		int index=indice.nextInt();
-		dipendenteAssegnato=Project.dipendenteArrayList.get(index);
+		dipendenteAssegnato=Project.dipendenteArrayList.get(index-1);
 
 
 		System.out.println("Questa task è una task di importanza critica?");

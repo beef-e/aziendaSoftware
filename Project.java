@@ -46,10 +46,10 @@ public class Project {
 		for (int i = 0; i < nMilestones; i++) {
 
 			Milestone milestone1=new Milestone();
-			System.out.print("Inserire Nome e cognome del dipendente " +(i+1));
+			//System.out.print("Inserire Nome e cognome del dipendente " +(i+1) +"\n");
 			milestone1.setup();
 			//DateFormat dd;
-			System.out.println(milestone1.dataScadenza);
+			//System.out.println(milestone1.dataScadenza);
 			milestoneArrayList.add(milestone1);
 		}
 

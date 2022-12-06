@@ -18,7 +18,8 @@ public class Main {
 		int risposta;
 
 		do{
-			System.out.println("Benvenuto. Selezionare la voce a cui si è interessati");
+			System.out.println("Benvenuto, oggi è " +DateFormat.format(giornoAttuale.getTime()));
+			System.out.println("Selezionare la voce a cui si è interessati");
 			System.out.println("1. Visualizza avanzamento progetto");
 			System.out.println("2. Visualizza avanzamento singola Milestone");
 			System.out.println("2. Gestisci avanzamento");
@@ -40,7 +41,7 @@ public class Main {
 					System.out.print("Inserisci numero Milestone\n>>>");
 					Scanner milestoneAsnwer =new Scanner(System.in);
 					int numeroMilestone= milestoneAsnwer.nextInt();
-					Milestone selectedMilestone=Project.milestoneArrayList.get(numeroMilestone);
+					Milestone selectedMilestone=Project.milestoneArrayList.get(numeroMilestone-1);
 					int nuovo=selectedMilestone.aggiornamento();
 					float percentuale=selectedMilestone.percentualeAvanzamento(nuovo);
 					System.out.println("La percentuale di avanzamento della Milestone selezionata è del "+percentuale +"%");
