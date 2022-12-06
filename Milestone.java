@@ -7,13 +7,36 @@ import java.util.Scanner;
 public class Milestone {
 	Date dataScadenza;
 	static ArrayList<Task> taskArrayList=new ArrayList<Task>();
+	boolean completed;
 
 	public Milestone(){
 
 	}
 
-	public float percentualeAvanzamento(){
+	public int aggiornamento(){
+		int iniziale= taskArrayList.size();
+		int nuovo=0;
+
+		for (int i = 0; i < iniziale; i++) {
+			if (taskArrayList.get(i).completato){
+				nuovo+=1;
+			}
+		}
+
+		return nuovo;
+	}
+
+	public float percentualeAvanzamento(int nuovo){
+		int iniziale= taskArrayList.size();
 		float percentuale=0;
+
+		percentuale=nuovo/iniziale;
+		percentuale=percentuale*100;
+
+		if (percentuale==100){
+			completed=true;
+		}
+
 		return percentuale;
 	}
 

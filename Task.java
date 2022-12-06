@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.ServiceConfigurationError;
 
 public class Task {
-	//dipendente assegnato
 	Date dataScadenza;
 	boolean critico;
 	Dipendente dipendenteAssegnato;
@@ -44,6 +43,7 @@ public class Task {
 		int index=indice.nextInt();
 		dipendenteAssegnato=Project.dipendenteArrayList.get(index);
 
+
 		System.out.println("Questa task è una task di importanza critica?");
 		System.out.println("1. Sì");
 		System.out.println("2. No");
@@ -55,8 +55,6 @@ public class Task {
 				break;
 
 			case 2:
-				critico=false;
-				break;
 
 			default:
 				critico=false;
@@ -74,45 +72,29 @@ public class Task {
 		int val=0;
 		if (critico) val+=1;
 		if (completato) val+=2;
-		switch (val){
-			case 0:
-				System.out.println("La Task selezionata è attualmente non completata e di importanza non critica");
-				break;
-
-			case 1:
-				System.out.println("La Task selezionata è attualmente non completata, ma di importanza critica");
-				break;
-
-			case 2:
-				System.out.println("La Task selezionata è stata completata con una importanza non critica");
-				break;
-
-			case 3:
-				System.out.println("La Task selezionata è stata completata con una importanza critica");
-				break;
-
-			default:
-				System.out.println("Qualcosa è andato storto nella lettura della Task");
-				break;
+		switch (val) {
+			case 0 ->
+					System.out.println("La Task selezionata è attualmente non completata e di importanza non critica");
+			case 1 -> System.out.println("La Task selezionata è attualmente non completata, ma di importanza critica");
+			case 2 -> System.out.println("La Task selezionata è stata completata con una importanza non critica");
+			case 3 -> System.out.println("La Task selezionata è stata completata con una importanza critica");
+			default -> System.out.println("Qualcosa è andato storto nella lettura della Task");
 		}
 
+		System.out.print(">>>");
 		Scanner numero=new Scanner(System.in);
 		int risposta=numero.nextInt();
 
-		switch (risposta){
-			case 1:
-				completato=true;
+		switch (risposta) {
+			case 1 -> {
+				completato = true;
 				System.out.println("Task contrassegnata come completata");
-				break;
-
-			case 2:
-				critico=true;
+			}
+			case 2 -> {
+				critico = true;
 				System.out.println("Task contrassegnata come critica");
-				break;
-
-			default:
-				break;
+			}
+			default -> System.out.println("Nessuna modifica effettuata");
 		}
-		//chiedi cosa fare e falla
 	}
 }

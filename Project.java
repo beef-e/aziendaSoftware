@@ -15,7 +15,16 @@ public class Project {
 	}
 
 	public float percentualeCompletamento(){
-		float percentuale=0; //momentaneo
+		System.out.println("Si è scelto di visualizzare l'avanzmaneto del progetto selezionato");
+		int iniziale=milestoneArrayList.size();
+		int nuovo=0;
+		for (int i = 0; i < iniziale; i++) {
+			if (milestoneArrayList.get(i).completed==true){
+				nuovo+=1;
+			}
+		}
+		float percentuale=nuovo/iniziale;
+		percentuale=percentuale*100;
 		return percentuale;
 	}
 
