@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Milestone {
-	Date dataScadenza;
+	Calendar dataScadenza;
 	static ArrayList<Task> taskArrayList=new ArrayList<Task>();
 	boolean completed;
 
@@ -55,7 +55,7 @@ public class Milestone {
 		myDate.set(Calendar.MONTH, (m-1));
 		myDate.set(Calendar.YEAR, y);
 		SimpleDateFormat DateFormat= new SimpleDateFormat("dd/MM/yy");
-		this.dataScadenza=myDate.getTime();
+		this.dataScadenza=myDate;
 
 		System.out.println("Inserire il numero di task per la milestone:");
 		Scanner ntasks=new Scanner(System.in);

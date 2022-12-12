@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.ServiceConfigurationError;
 
 public class Task {
-	Date dataScadenza;
+	Calendar dataScadenza;
 	boolean critico;
 	Dipendente dipendenteAssegnato;
 	boolean completato;
@@ -28,7 +28,7 @@ public class Task {
 		myDate.set(Calendar.MONTH, (m-1));
 		myDate.set(Calendar.YEAR, y);
 		SimpleDateFormat DateFormat= new SimpleDateFormat("dd/MM/yy");
-		this.dataScadenza=myDate.getTime();
+		this.dataScadenza=myDate;
 		
 		System.out.println("Selezionare dipendente assegnato selezionando il numero corrispondente");
 		for (int i = 0; i < Project.dipendenteArrayList.size(); i++) {
@@ -65,6 +65,14 @@ public class Task {
 	}
 
 	public void taskHandling(){
+
+		//float compare= dataScadenza.compareTo(Main.giornoAttuale);
+
+		if(dataScadenza.before(Main.giornoAttuale)){
+			critico=true;
+		}
+
+
 		System.out.println("Quale azione si desidera effettuare con la task selezionata?");
 		System.out.println("1. Contrassegna come completato");
 		System.out.println("2. Contrassegna come critico");

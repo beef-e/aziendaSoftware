@@ -16,14 +16,15 @@ public class Main {
 	public static void menu(){
 
 		int risposta;
+		int nuovo;
 
 		do{
 			System.out.println("Benvenuto, oggi è " +DateFormat.format(giornoAttuale.getTime()));
 			System.out.println("Selezionare la voce a cui si è interessati");
 			System.out.println("1. Visualizza avanzamento progetto");
 			System.out.println("2. Visualizza avanzamento singola Milestone");
-			System.out.println("2. Gestisci avanzamento");
-			System.out.println("3. Esci");
+			System.out.println("3. Gestisci avanzamento");
+			System.out.println("4. Esci");
 			System.out.println("0. Avanza di un giorno");
 			System.out.print(">>>");
 			Scanner menuanswer=new Scanner(System.in);
@@ -34,6 +35,7 @@ public class Main {
 				case 1:
 					float percentualeProject=progettoProva.percentualeCompletamento();
 					System.out.println("La percentuale di completamento del progetto attuale è del "+percentualeProject +"%");
+					risposta=5;
 					break;
 
 
@@ -42,7 +44,7 @@ public class Main {
 					Scanner milestoneAsnwer =new Scanner(System.in);
 					int numeroMilestone= milestoneAsnwer.nextInt();
 					Milestone selectedMilestone=Project.milestoneArrayList.get(numeroMilestone-1);
-					int nuovo=selectedMilestone.aggiornamento();
+					nuovo=selectedMilestone.aggiornamento();
 					float percentuale=selectedMilestone.percentualeAvanzamento(nuovo);
 					System.out.println("La percentuale di avanzamento della Milestone selezionata è del "+percentuale +"%");
 					risposta=5;
@@ -52,14 +54,14 @@ public class Main {
 					System.out.print("Inserisci numero Milestone\n>>>");
 					milestoneAsnwer =new Scanner(System.in);
 					numeroMilestone= milestoneAsnwer.nextInt();
-					selectedMilestone=Project.milestoneArrayList.get(numeroMilestone);
+					selectedMilestone=Project.milestoneArrayList.get(numeroMilestone-1);
 					System.out.print("Inserisci numero Task\n>>>");
 					Scanner taskAnswer=new Scanner(System.in);
 					int numeroTask=taskAnswer.nextInt();
-					Task selectedTask=selectedMilestone.taskArrayList.get(numeroTask);
+					Task selectedTask=selectedMilestone.taskArrayList.get(numeroTask-1);
 					selectedTask.taskHandling();
 					if (selectedTask.completato){
-						selectedMilestone.aggiornamento();
+						nuovo=selectedMilestone.aggiornamento();
 					}
 					risposta=5;
 					break;
